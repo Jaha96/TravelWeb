@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Хөтөч жагсаалт";
+    Layout = "~/Views/Shared/Dashboard.cshtml";
+}
+
+
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h1 class="page-header">Dashboard</h1>
+
+    <div class="row placeholders">
+
+    </div>
+    @using (Html.BeginForm())
+    {
+        <h2 class="sub-header">Section title</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Нэр</th>
+                        <th>Мэйл хаяг</th>
+                        <th>Регистерийн дугаар</th>
+                        <th>Утас</th>
+                        <th>Хаяг</th>
+                        <th>Төрсөн огноо</th>
+                        <th>Хүйс</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(int i=0;i<Model.Count;i++)
+                    { 
+                        <tr>
+                            <td>@Model[i].hutuchId</td>
+                            <td>@Model[i].name</td>
+                            <td>@Model[i].email</td>
+                            <td>@Model[i].registerNo</td>
+                            <td>@Model[i].phone</td>
+                            <td>@Model[i].address</td>
+                            <td>@Model[i].birthDate.ToString("yyyy-MM-dd")</td>
+                            @if (Model[i].gender)
+                            {
+                            <td>Эрэгтэй</td>}
+                            else
+                            {
+                                <td>Эмэгтэй</td>
+                            }
+                            <td><a href="@Url.Action("DeleteHutuch","Admin",new { id=Model[i].hutuchId })">Устгах</a> | <a href="@Url.Action("UpdateHutuch","Admin",new { id=Model[i].hutuchId })">Засах</a> | <a href="@Url.Action("DetailsHutuch","Admin",new { id=Model[i].hutuchId })">Дэлгэрэнгүй</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

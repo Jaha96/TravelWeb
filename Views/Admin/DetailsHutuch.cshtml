@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Хөтөчийн дэлгэрэнгүй";
+    Layout = "~/Views/Shared/Dashboard.cshtml";
+}
+
+
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h1 class="page-header">Dashboard</h1>
+
+    <div class="row placeholders">
+
+    </div>
+    @using (Html.BeginForm())
+    {
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h2 class="sub-header">Хөтөч дэлгэрэнгүй</h2></div>
+                <div class="panel-body">
+                    <table class="table-condensed table">
+                        <tr>
+                            <td>ID</td>
+                            <td>@Model.hutuchId</td>
+                        </tr>
+                        <tr>
+                            <td>Нэр</td>
+                            <td>@Model.name</td>
+                        </tr>
+                        <tr>
+                            <td>Регистерийн дугаар</td>
+                            <td>@Model.registerNo</td>
+                        </tr>
+                        <tr>
+                            <td>Утас</td>
+                            <td>@Model.phone</td>
+                        </tr>
+                        <tr>
+                            <td>Хаяг</td>
+                            <td>@Model.address</td>
+                        </tr>
+                        <tr>
+                            <td>Төрсөн огноо</td>
+                            <td>@Model.birthDate.ToString("yyyy-MM-dd")</td>
+                        </tr>
+                        <tr>
+                            <td>Хүйс</td>
+                            <td>@Model.gender</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

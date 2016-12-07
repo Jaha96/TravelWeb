@@ -1,4 +1,4 @@
-﻿@model TravelWeb.Models.Hutuch
+﻿@model TravelWeb.Models.ViewModel.HutuchModel
 @{
     ViewBag.Title = "Хөтөч бүртгэх";
     Layout = "~/Views/Shared/Dashboard.cshtml";
@@ -19,8 +19,8 @@
             <div class="panel-heading"><h2 class="sub-header">Хөтөч бүртгэх</h2></div>
             <div class="panel-body">
                 <div class="form-group">
-                    <label style="color:red">@ViewBag.Message</label>
-                    <label style="color:red">@ViewBag.ErrorMessage</label>
+                    <div class="alert-success">@ViewBag.Message</div>
+                    <div class="alert-danger">@ViewBag.ErrorMessage</div>
                 </div>
                 <div class="form-group col-lg-6">
                     <label for="ContractPerion">Хөтөчийн нэр</label>
@@ -49,8 +49,12 @@
                 </div>
                 <div class="form-group col-lg-6">
                     <label for="ContractPerion">Хүйс</label>
-                    @Html.RadioButtonFor(a => a.gender, true, new { @class = "form-control" })
-                    @Html.RadioButtonFor(a => a.gender, false, new { @class = "form-control" })
+                
+                    @Html.DropDownListFor(a => a.gender, new List<SelectListItem> {
+                    new SelectListItem { Text="Эрэгтэй", Value="0" },
+                    new SelectListItem { Text="Эмэгтэй", Value="1" }
+                }, new { @class = "form-control" })
+                        
                 </div>
                 <div class="form-group col-lg-6">
                     <label for="ContractPerion">Төрсөн өдөр</label>

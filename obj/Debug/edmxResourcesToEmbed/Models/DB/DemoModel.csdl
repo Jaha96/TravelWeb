@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Database1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Hutuch">
+    <Key>
+      <PropertyRef Name="hutuchId" />
+    </Key>
+    <Property Name="hutuchId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="registerNo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="birthDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="gender" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Hutulburs" Relationship="Self.FK_Hutulbur_ToTable" FromRole="Hutuch" ToRole="Hutulbur" />
+  </EntityType>
+  <EntityType Name="Hutulbur">
+    <Key>
+      <PropertyRef Name="hutulburId" />
+    </Key>
+    <Property Name="hutulburId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="chiglel" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="startDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="endDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="taniltsuulga" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="zurag" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="hutuchId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Hutuch" Relationship="Self.FK_Hutulbur_ToTable" FromRole="Hutulbur" ToRole="Hutuch" />
+  </EntityType>
+  <Association Name="FK_Hutulbur_ToTable">
+    <End Role="Hutuch" Type="Self.Hutuch" Multiplicity="1" />
+    <End Role="Hutulbur" Type="Self.Hutulbur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hutuch">
+        <PropertyRef Name="hutuchId" />
+      </Principal>
+      <Dependent Role="Hutulbur">
+        <PropertyRef Name="hutuchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Database1Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Hutuches" EntityType="Self.Hutuch" />
+    <EntitySet Name="Hutulburs" EntityType="Self.Hutulbur" />
+    <AssociationSet Name="FK_Hutulbur_ToTable" Association="Self.FK_Hutulbur_ToTable">
+      <End Role="Hutuch" EntitySet="Hutuches" />
+      <End Role="Hutulbur" EntitySet="Hutulburs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
