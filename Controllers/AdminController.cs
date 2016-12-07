@@ -26,10 +26,12 @@ namespace TravelWeb.Controllers
             return items.ToArray();
         }
         // GET: Admin
+       
         public ActionResult Index()
         {
             return View();
         }
+        
         public ActionResult AylalRegister()
         {
             ViewBag.HutuchList = getBloodType();
@@ -40,6 +42,7 @@ namespace TravelWeb.Controllers
         {
             return View();
         }
+<<<<<<< HEAD
         [HttpPost]
         public ActionResult HutuchRegister(HutuchModel HM)
         {
@@ -68,6 +71,14 @@ namespace TravelWeb.Controllers
                 return HttpNotFound();
             }
             return View(hut);
+=======
+        public ActionResult Medee()
+        {
+            return View();
+        }
+        public ActionResult Adminburtgeh() {
+            return View();
+>>>>>>> f188c8084a5c0ee2bdbf5f5a12ddacf260a5bc5e
         }
     }
 }
