@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace TravelWeb.Models
+namespace TravelWeb.Models.ViewModel
 {
-    public class Hutuch
+    public class HutuchModel
     {
         public int hutuchId { get; set; }
         public string name { get; set; }
