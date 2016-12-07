@@ -182,9 +182,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Adminburtgeh.cs" />
     <Compile Include="Models\Aylal.cs" />
     <Compile Include="Models\Hutuch.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\medee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
@@ -259,6 +261,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Admin\HutuchRegister.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\Medee.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\Adminburtgeh.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

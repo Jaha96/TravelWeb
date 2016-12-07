@@ -23,10 +23,12 @@ namespace TravelWeb.Controllers
             return items.ToArray();
         }
         // GET: Admin
+       
         public ActionResult Index()
         {
             return View();
         }
+        
         public ActionResult AylalRegister()
         {
             ViewBag.HutuchList = getBloodType();
@@ -35,6 +37,13 @@ namespace TravelWeb.Controllers
 
         public ActionResult HutuchRegister()
         {
+            return View();
+        }
+        public ActionResult Medee()
+        {
+            return View();
+        }
+        public ActionResult Adminburtgeh() {
             return View();
         }
     }
